@@ -23,9 +23,6 @@ for (link in as) {
     var newA = document.createElement("a");
     newA.href=as[link].href;
 
-//the onload stuff doesn't seem to be working out very well, hence trying alternatives like this, and currently just setting the code to log
-//    newA.innerHTML="<img src=\"" + as[link].href + "\" alt=\"" + as[link].innerHTML + "\" onload=\"console.log('loaded " + as[link].innerHTML + "')\" />";
-
     var newImg = document.createElement("img");
     newImg.src=as[link].href;
     newImg.alt=as[link].innerHTML;
@@ -36,12 +33,11 @@ for (link in as) {
   }
 }
 
-
+/* I don't think we need this anymore
 function addDimensions() {
 	var divs = document.getElementsByTagName("div");
 	for (var i=0; i<divs.length; i++) {
 		var div = divs[i];
-		//div.removeChild(div.getElementsByTagName("span")[0]);
 		var img = div.getElementsByTagName("img")[0];
 		
 		var newSpan = document.createElement("span");
@@ -50,9 +46,9 @@ function addDimensions() {
 	    div.appendChild(newSpan);
 	}
 }
+*/
 
 document.body.parentNode.replaceChild(newBody, document.getElementsByTagName("body")[0]);
-
 
 
 var imgs = document.getElementsByTagName("img");
@@ -62,10 +58,15 @@ var loaded = 0;
 
 function newLoad() {
 	loaded++;
+	
+	var parentDiv = this.parentNode.parentNode;
+	var newSpan = document.createElement("span");
+	newSpan.appendChild(document.createTextNode(this.naturalWidth + "x" + this.naturalHeight + "px"));
+	    
+	parentDiv.appendChild(newSpan);
+	
 	if(numImgs == loaded) {
-		//if this worked, we could put the code to add dimensions here
 		console.log("done loading " + loaded + " images!");
-		addDimensions();
 	}
 }
 
