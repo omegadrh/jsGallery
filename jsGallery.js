@@ -6,13 +6,22 @@
  * a function(){} to let it rewrite top-level variables/functions as well), then
  * paste into the address bar of some web page (primarily some "index of /blah")
  * prefixed by "javascript:"
+ *
+ * 1.80 KiB minified w/ YUI compressor
+ * 1.75 KiB minified w/ standard compressor
+ * 1.70 KiB minified w/ YUI and createElement substitution
+ * 1.63 KiB minified w/ YUI and function(){} wrapper
+ * 1.53 KiB minified w/ YUI and function(){} wrapper and createElement substitution
+ 
  */
 //function x(y) { return document.createElement(y); }
 
 var newBody = document.createElement("body");
 var newStyle = document.createElement("style");
 newStyle.type="text/css";
-newStyle.innerHTML="body { background-color: grey; }\ndiv { position: relative; float: left; padding: 2px; }\nimg { max-height: 200px; max-width: 400px; }\nspan { position: absolute; right: 2px; bottom: 2px; border: 1px dotted black; background: white; opacity: 0.7; font-family: sans-serif; font-size: smaller; }";
+//newStyle.innerHTML="body { background-color: grey; }\ndiv { position: relative; float: left; padding: 2px; }\nimg { max-height: 200px; max-width: 400px; }\nspan { position: absolute; right: 2px; bottom: 2px; border: 1px dotted black; background: white; opacity: 0.7; font-family: sans-serif; font-size: smaller; }";
+//the above is minified as follows
+newStyle.innerHTML="body{background-color:grey}div{position:relative;float:left;padding:2px}img{max-height:200px;max-width:400px}span{position:absolute;right:2px;bottom:2px;border:1px dotted #000;background:#fff;opacity:.7;font:smaller sans-serif}";
 document.head.appendChild(newStyle);
 
 
