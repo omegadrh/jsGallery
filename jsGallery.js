@@ -29,7 +29,6 @@ for (link in as) {
     var newImg = document.createElement("img");
     newImg.src=as[link].href;
     newImg.alt=as[link].innerHTML;
-    newImg.onload=function(){console.log(newImg.alt)};
 
     newA.appendChild(newImg);
     newDiv.appendChild(newA);
@@ -37,10 +36,10 @@ for (link in as) {
   }
 }
 
-/* see comments above regarding onload functionality
-newBody.onload = function () {
+
+function addDimensions() {
 	var divs = document.getElementsByTagName("div");
-	for (i in divs) {
+	for (var i=0; i<divs.length; i++) {
 		var div = divs[i];
 		//div.removeChild(div.getElementsByTagName("span")[0]);
 		var img = div.getElementsByTagName("img")[0];
@@ -51,7 +50,6 @@ newBody.onload = function () {
 	    div.appendChild(newSpan);
 	}
 }
-*/
 
 document.body.parentNode.replaceChild(newBody, document.getElementsByTagName("body")[0]);
 
@@ -67,18 +65,18 @@ function newLoad() {
 	if(numImgs == loaded) {
 		//if this worked, we could put the code to add dimensions here
 		console.log("done loading " + loaded + " images!");
+		addDimensions();
 	}
 }
 
 for (var i=0; i<imgs.length; i++) {
 	numImgs++;
-	imgs[i].onload=function(){console.log("trying again for " + i)};
 }
 for (var i=0; i<imgs.length; i++) {
 	if(imgs[i].complete) {
 		newLoad();
 	} else {
 		imgs[i].addEventListener('load', newLoad);
-		//imgs[i].addEventListener('error', alert(i +' failed'));
+		imgs[i].addEventListener('error', function(){alert(i +' failed')});
 	}
 }
