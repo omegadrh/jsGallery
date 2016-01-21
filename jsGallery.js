@@ -7,16 +7,18 @@
  * paste into the address bar of some web page (primarily some "index of /blah")
  * prefixed by "javascript:"
  *
- * 1.45 KiB minified w/ YUI compressor
- * 1.41 KiB minified w/ standard compressor
- * 1.38 KiB minified w/ YUI and createElement substitution
- * 1.29 KiB minified w/ YUI and function(){} wrapper
- * 1.21 KiB minified w/ YUI and function(){} wrapper and createElement substitution
+ * 1.45 KB minified w/ YUI compressor
+ * 1.41 KB minified w/ standard compressor
+ * 1.38 KB minified w/ YUI and createElement substitution
+ * 1.29 KB minified w/ YUI and function(){} wrapper
+ * 1.21 KB minified w/ YUI and function(){} wrapper and substitution for createElement
+ * 1.17 KB minified w/ YUI and function(){} wrapper and substitution for createElement and getElementsByTagName
  *
  * minified string to copy (make sure your browser doesn't delete the leading "javascript:"):
-javascript:function m(i){return document.createElement(i)}var d=m("body");var g=m("style");g.type="text/css";g.innerHTML="body{background-color:grey}div{position:relative;float:left;padding:2px}img{max-height:200px;max-width:400px}span{position:absolute;right:2px;bottom:2px;border:1px dotted #000;background:#fff;opacity:.7;font:smaller sans-serif}";document.head.appendChild(g);var e=document.getElementsByTagName("a");for(link in e){if(e[link].href!=null&&e[link].href.search(/(jpg|png|gif|bmp|jpeg)/i)>0){var c=m("div");var b=m("a");b.href=e[link].href;var f=m("img");f.src=e[link].href;f.alt=e[link].innerHTML;b.appendChild(f);c.appendChild(b);d.appendChild(c)}}document.body.parentNode.replaceChild(d,document.getElementsByTagName("body")[0]);var l=document.getElementsByTagName("img");var a=0;var k=0;function j(){k++;var n=this.parentNode.parentNode;var i=m("span");i.appendChild(document.createTextNode(this.naturalWidth+"x"+this.naturalHeight+"px"));n.appendChild(i);if(a==k){console.log("done loading "+k+" images!")}}for(var h=0;h<l.length;h++){a++}for(var h=0;h<l.length;h++){if(l[h].complete){j()}else{l[h].addEventListener("load",j);l[h].addEventListener("error",function(){alert(h+" failed")})}}
+javascript:function n(i){return document.createElement(i)}function m(i){return document.getElementsByTagName(i)}var d=n("body");var g=n("style");g.type="text/css";g.innerHTML="body{background-color:grey}div{position:relative;float:left;padding:2px}img{max-height:200px;max-width:400px}span{position:absolute;right:2px;bottom:2px;border:1px dotted #000;background:#fff;opacity:.7;font:smaller sans-serif}";document.head.appendChild(g);var e=m("a");for(link in e){if(e[link].href!=null&&e[link].href.search(/(jpg|png|gif|bmp|jpeg)/i)>0){var c=n("div");var b=n("a");b.href=e[link].href;var f=n("img");f.src=e[link].href;f.alt=e[link].innerHTML;b.appendChild(f);c.appendChild(b);d.appendChild(c)}}document.body.parentNode.replaceChild(d,m("body")[0]);var l=m("img");var a=0;var k=0;function j(){k++;var o=this.parentNode.parentNode;var i=n("span");i.appendChild(document.createTextNode(this.naturalWidth+"x"+this.naturalHeight+"px"));o.appendChild(i);if(a==k){console.log("done loading "+k+" images!")}}for(var h=0;h<l.length;h++){a++}for(var h=0;h<l.length;h++){if(l[h].complete){j()}else{l[h].addEventListener("load",j);l[h].addEventListener("error",function(){alert(h+" failed")})}}
  */
 //function x(y) { return document.createElement(y); }
+//function y(z) { return document.getElementsByTagName(z); }
 
 var newBody = document.createElement("body");
 var newStyle = document.createElement("style");
