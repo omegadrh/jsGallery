@@ -7,12 +7,14 @@
  * paste into the address bar of some web page (primarily some "index of /blah")
  * prefixed by "javascript:"
  *
- * 1.80 KiB minified w/ YUI compressor
- * 1.75 KiB minified w/ standard compressor
- * 1.70 KiB minified w/ YUI and createElement substitution
- * 1.63 KiB minified w/ YUI and function(){} wrapper
- * 1.53 KiB minified w/ YUI and function(){} wrapper and createElement substitution
- 
+ * 1.45 KiB minified w/ YUI compressor
+ * 1.41 KiB minified w/ standard compressor
+ * 1.38 KiB minified w/ YUI and createElement substitution
+ * 1.29 KiB minified w/ YUI and function(){} wrapper
+ * 1.21 KiB minified w/ YUI and function(){} wrapper and createElement substitution
+ *
+ * minified string to copy (make sure your browser doesn't delete the leading "javascript:"):
+javascript:function m(i){return document.createElement(i)}var d=m("body");var g=m("style");g.type="text/css";g.innerHTML="body{background-color:grey}div{position:relative;float:left;padding:2px}img{max-height:200px;max-width:400px}span{position:absolute;right:2px;bottom:2px;border:1px dotted #000;background:#fff;opacity:.7;font:smaller sans-serif}";document.head.appendChild(g);var e=document.getElementsByTagName("a");for(link in e){if(e[link].href!=null&&e[link].href.search(/(jpg|png|gif|bmp|jpeg)/i)>0){var c=m("div");var b=m("a");b.href=e[link].href;var f=m("img");f.src=e[link].href;f.alt=e[link].innerHTML;b.appendChild(f);c.appendChild(b);d.appendChild(c)}}document.body.parentNode.replaceChild(d,document.getElementsByTagName("body")[0]);var l=document.getElementsByTagName("img");var a=0;var k=0;function j(){k++;var n=this.parentNode.parentNode;var i=m("span");i.appendChild(document.createTextNode(this.naturalWidth+"x"+this.naturalHeight+"px"));n.appendChild(i);if(a==k){console.log("done loading "+k+" images!")}}for(var h=0;h<l.length;h++){a++}for(var h=0;h<l.length;h++){if(l[h].complete){j()}else{l[h].addEventListener("load",j);l[h].addEventListener("error",function(){alert(h+" failed")})}}
  */
 //function x(y) { return document.createElement(y); }
 
