@@ -29,7 +29,7 @@ for (link in as) {
     var newImg = document.createElement("img");
     newImg.src=as[link].href;
     newImg.alt=as[link].innerHTML;
-    newImg.onload=console.log(newImg.alt);
+    newImg.onload=function(){console.log(newImg.alt)};
 
     newA.appendChild(newImg);
     newDiv.appendChild(newA);
@@ -72,13 +72,13 @@ function newLoad() {
 
 for (var i=0; i<imgs.length; i++) {
 	numImgs++;
-	imgs[i].onload=console.log("trying again for " + i);
+	imgs[i].onload=function(){console.log("trying again for " + i)};
 }
 for (var i=0; i<imgs.length; i++) {
 	if(imgs[i].complete) {
 		newLoad();
 	} else {
-		imgs[i].addEventListener('load', newLoad());
+		imgs[i].addEventListener('load', newLoad);
 		//imgs[i].addEventListener('error', alert(i +' failed'));
 	}
 }
